@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <div class="card text-center">
+        <div class="card-header">
+        {{ post.id }}
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">{{ post.title }} - by {{ post.author }}</h5>
+        <img src="{{ post.image.url }}" class="img-fluid" />
+        <p class="card-text">{{ post.content|safe }}</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to Main</a>
+        </div>
+        <div class="card-footer text-muted">
+        last updated at {{ post.date|timesince }} ago
+        </div>
+    </div>
+
+{% endblock %}
